@@ -11,6 +11,9 @@ const UsuarioSchema = Schema({
         required : [true, 'El correo es obligatorio'],
         unique : true
     },
+    compras: {
+        type: Array
+    },
     password : {
         type: String,
         required : [true, 'La contraseña es obligatoria'],
@@ -21,15 +24,11 @@ const UsuarioSchema = Schema({
     rol : {
         type: String,
         required : true,
-        emun : [ "ADMIN_ROLE" , "USER_ROLE" ]
+        enum : [ "ADMIN_ROLE" , "USER_ROLE" ]
     },
     estado : {
         type: Boolean,
         default : true
-    },
-    google : {
-        type: Boolean,
-        default : false
     }
 });
 

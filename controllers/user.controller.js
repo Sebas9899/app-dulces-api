@@ -29,15 +29,12 @@ const postUser = async ( req , res ) => {
 // ------------------ READ ------------------ //
 const getUsers = async ( req , res ) => {
 
-    const { limit = 5 , from = 0 } = req.query;
     const state = { estado : true }
     
 
     const [ total , users ] = await Promise.all([
         Usuario.countDocuments(state),
         Usuario.find(state)
-            .skip( Number( from ) )
-            .limit( Number( limit ) )
     ])
 
     res.json({ 

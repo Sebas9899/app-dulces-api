@@ -4,7 +4,7 @@ const dbConnection = async() => {
 
     try {
         
-        await mongoose.connect("mongodb+srv://sebas9899:Fw3VsTvkMJrhQIaI@cluster0.2lqfgbf.mongodb.net/test");
+        await mongoose.connect( "mongodb+srv://sebas9899:jiVyLFXTovktXkfY@cluster0.2lqfgbf.mongodb.net/test" );
         console.log("Conexión exitosa a BD online");
 
     } catch (error) {
