@@ -9,6 +9,7 @@ class Server {
         this.port = 3000 || 5000;
         this.usersPath = '/api/users';
         this.dulcesPath = '/api/dulces';
+        this.authPath = '/api/auth';
 
         // Conexión a la BD
         this.conectarDB();
@@ -42,6 +43,7 @@ class Server {
         
         this.app.use( this.usersPath , require('../routes/user'));
         this.app.use( this.dulcesPath , require('../routes/dulce'));
+        this.app.use( this.authPath , require('../routes/auth'));
 
     }
 

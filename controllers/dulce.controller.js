@@ -4,7 +4,7 @@ const Dulces = require('../models/dulce');
 
 const getDulces = async ( req , res = response ) => {
 
-    return await Dulces.find();
+    return res.json(await Dulces.find());
 };
 
 const postDulce = async ( req , res = response ) => {

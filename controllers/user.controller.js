@@ -1,4 +1,4 @@
-const { response : res, request : req } = require('express');
+const { response } = require('express');
 
 const bcryptjs = require('bcryptjs')
 
@@ -6,7 +6,7 @@ const Usuario = require('../models/user');
 
  // ------------------------------------------ //
 // ----------------- CREATE ----------------- //
-const postUser = async ( req , res ) => {
+const postUser = async ( req , res = response ) => {
 
     const { nombre, correo, password, rol } = req.body;
     const usuario = new Usuario({ nombre, correo, password, rol });
@@ -20,6 +20,7 @@ const postUser = async ( req , res ) => {
     await usuario.save();
 
     res.json({
+        ok: true,
         usuario
     })
     
@@ -27,7 +28,7 @@ const postUser = async ( req , res ) => {
 
  // ------------------------------------------ //
 // ------------------ READ ------------------ //
-const getUsers = async ( req , res ) => {
+const getUsers = async ( req , res = response ) => {
 
     const state = { estado : true }
     
@@ -46,7 +47,7 @@ const getUsers = async ( req , res ) => {
 
  // ------------------------------------------ //
 // ----------------- UPDATE ----------------- //
-const updateUser = async ( req, res) => {
+const updateUser = async ( req, res = response) => {
 
     const { id } = req.params;
     const { _id, password, google, correo, ...resto } = req.body;
@@ -64,7 +65,7 @@ const updateUser = async ( req, res) => {
 
  // ------------------------------------------ //
 // ----------------- DELETE ----------------- //
-const deleteUser = async ( req, res ) => {
+const deleteUser = async ( req, res = response ) => {
 
     const { id } = req.params;
 

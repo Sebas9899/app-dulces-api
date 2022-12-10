@@ -8,6 +8,10 @@ const DulceSchema = Schema({
     descripcion: {
         type: String,
     },
+    stock: {
+        type:Number,
+        required: [true, 'El stock es obligatorio']
+    },
     precio : {
         type: Number,
         required : [true, 'El precio es obligatorio'],
