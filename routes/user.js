@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { body, check } = require('express-validator');
 const { addPurchase } = require('../controllers/compra.controller');
-const { postUser, getUsers, updateUser } = require('../controllers/user.controller');
+const { postUser, getUsers, updateUser, getOneUser } = require('../controllers/user.controller');
 const { emailExists, isValidRole, idExists } = require('../helpers/db-validators');
 const { validateFields } = require('../middlewares/validate-fields');
 
@@ -24,5 +24,6 @@ route.put('/:id', [
 ], updateUser )
 
 route.get('/', getUsers );
+route.get('/:id', getOneUser );
 
 module.exports = route;

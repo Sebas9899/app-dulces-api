@@ -9,7 +9,7 @@ const Usuario = require('../models/user');
 const postUser = async ( req , res = response ) => {
 
     const { nombre, correo, password, rol } = req.body;
-    const usuario = new Usuario({ nombre, correo, password, rol });
+    const usuario = new Usuario({ nombre: nombre.toLowerCase(), correo, password, rol });
 
     // Encriptación de la contraseña
     const salt = bcryptjs.genSaltSync();
@@ -41,6 +41,17 @@ const getUsers = async ( req , res = response ) => {
     res.json({ 
         total,
         users
+    })
+
+};
+const getOneUser = async ( req , res = response ) => {
+
+    const { id } = req.params;
+
+    const user = await Usuario.findById(id);
+
+    res.json({ 
+        user
     })
 
 };
@@ -84,4 +95,5 @@ module.exports = {
     deleteUser,
     postUser,
     updateUser,
+    getOneUser
 }

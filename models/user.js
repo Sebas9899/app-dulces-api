@@ -20,6 +20,7 @@ const UsuarioSchema = Schema({
     },
     img : {
         type: String,
+        default: "https://img.freepik.com/vector-gratis/ilustracion-icono-dibujos-animados-caramelo-paleta_138676-2642.jpg?w=740&t=st=1670703871~exp=1670704471~hmac=9a08d93486992f98309e7b0b8e2267728d19fb611cb5bce0d17de1c84ce68806"
     },
     rol : {
         type: String,
