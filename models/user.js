@@ -12,7 +12,8 @@ const UsuarioSchema = Schema({
         unique : true
     },
     compras: {
-        type: Array
+        type: Array,
+        default: []
     },
     password : {
         type: String,
