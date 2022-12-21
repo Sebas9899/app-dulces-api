@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app",
-    "build": "vite build"
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
